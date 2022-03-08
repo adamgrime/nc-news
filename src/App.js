@@ -5,9 +5,9 @@ import {useState} from 'react'
 import Nav from './components/Nav';
 import ArticleList from './components/ArticleList';
 import TopicPages from './components/TopicPages';
+import SingleArticle from './components/SingleArticle';
 
 function App() {
-  const [chosenTopic, setChosenTopic] = useState("")
   const [articles, setArticles] = useState([])
   const [isLoading, setIsLoading] = useState(true);
   return (
@@ -16,13 +16,16 @@ function App() {
       <Header />
       <div>
       <Nav
-        setChosenTopic={setChosenTopic} />
+        />
         </div>
       <Routes>
         <Route path='/' element={<ArticleList
           articles={articles} setArticles={setArticles} isLoading={isLoading} setIsLoading={setIsLoading} />} />
         <Route path='/:topic' element={<TopicPages
-          chosenTopic={chosenTopic}  articles={articles} setArticles={setArticles} isLoading={isLoading} setIsLoading={setIsLoading} />}/>        
+          articles={articles} setArticles={setArticles} isLoading={isLoading} setIsLoading={setIsLoading} />} />    
+        <Route path='/articles/:article_id' element={<SingleArticle
+        articles={articles} setArticles={setArticles} isLoading={isLoading} setIsLoading={setIsLoading}
+        />} />
       </Routes>
     </div>
   );

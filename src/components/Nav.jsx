@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import { getTopics } from '../api'
 import { useEffect, useState } from 'react'
 
-export default function Nav(props) {
+export default function Nav() {
     const [topic, setTopic] = useState([])
     
     useEffect(() => {
@@ -20,7 +20,7 @@ export default function Nav(props) {
                     <li>
 
 
-                        <Link to={`/${topic.slug}`} key={topic.slug} onClick={() => props.setChosenTopic(topic.slug)} id="Nav_Link_Text">
+                        <Link to={`/${topic.slug}`} key={topic.slug} id="Nav_Link_Text">
                             <h5>{topic.slug}</h5>
                         </Link>
                     </li>

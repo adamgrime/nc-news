@@ -6,7 +6,7 @@ import { useParams } from 'react-router-dom';
 
 export default function TopicPages(props) {
     const { topic } = useParams();
-    console.log(topic)
+
     useEffect(() => {
         props.setIsLoading(true)
         api.getArticlesByTopic(topic).then(({ articles }) => {
@@ -24,6 +24,7 @@ export default function TopicPages(props) {
                 return (
                     <ArticleCard
                         key={article_id}
+                        article_id={article_id}
                         title={title}
                         topic={topic}
                         comment_count={comment_count}

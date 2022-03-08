@@ -4,9 +4,12 @@ import Header from './components/Header';
 import {useState} from 'react'
 import Nav from './components/Nav';
 import ArticleList from './components/ArticleList';
+import TopicPages from './components/TopicPages';
 
 function App() {
   const [chosenTopic, setChosenTopic] = useState("")
+  const [articles, setArticles] = useState([])
+  const [isLoading, setIsLoading] = useState(true);
   return (
     <div className="wrapper">
       
@@ -16,7 +19,10 @@ function App() {
         setChosenTopic={setChosenTopic} />
         </div>
       <Routes>
-        <Route path='/' element={<ArticleList />}/>
+        <Route path='/' element={<ArticleList
+          articles={articles} setArticles={setArticles} isLoading={isLoading} setIsLoading={setIsLoading} />} />
+        <Route path='/:topic' element={<TopicPages
+          chosenTopic={chosenTopic}  articles={articles} setArticles={setArticles} isLoading={isLoading} setIsLoading={setIsLoading} />}/>        
       </Routes>
     </div>
   );

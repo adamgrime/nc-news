@@ -9,7 +9,7 @@ export default function SingleArticle() {
 
     const { article_id } = useParams()
 
-    const [articles, setArticles] = useState([])
+    const [articles, setArticles] = useState({})
     const [isLoading, setIsLoading] = useState(true);
     
     
@@ -17,8 +17,9 @@ export default function SingleArticle() {
         setIsLoading(true)
         api.getArticlesByArticleId(article_id).then(({ article }) => {
         
-        setArticles([article])
-        setIsLoading(false)
+            setArticles(article)
+            setIsLoading(false)
+            
         })
     }, [article_id])
     
@@ -29,17 +30,17 @@ export default function SingleArticle() {
     return (
         <section>
             <ArticleCard
-                key={articles[0].article_id}
-                title={articles[0].title}
-                topic={articles[0].topic}
-                body={articles[0].body}
-                comment_count={articles[0].comment_count}
-                author={articles[0].author}
-                created_at={articles[0].created_at}
+                key={articles.article_id}
+                title={articles.title}
+                topic={articles.topic}
+                body={articles.body}
+                comment_count={articles.comment_count}
+                author={articles.author}
+                created_at={articles.created_at}
             />
             
                 <Comments
-                    article_id={articles[0].article_id} /> 
+                    article_id={articles.article_id} /> 
 
         </section>
 )

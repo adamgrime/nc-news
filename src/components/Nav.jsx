@@ -18,8 +18,6 @@ export default function Nav() {
             {topic.map((topic) => {
                 return <ul className='nav_bar_topics'>
                     <li>
-
-
                         <Link to={`/${topic.slug}`} key={topic.slug} id="Nav_Link_Text">
                             <h5>{topic.slug}</h5>
                         </Link>
@@ -27,9 +25,5 @@ export default function Nav() {
                 </ul>
             })}
         </nav>
-    
-       
-        
-        
-)
+    )
 }

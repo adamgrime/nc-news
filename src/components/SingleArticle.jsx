@@ -28,24 +28,20 @@ export default function SingleArticle() {
     
     return (
         <section>
-            {articles.map(({ article_id, title, body, topic, comment_count, author, created_at }) => {
-                return (
-                    <ArticleCard
-                        key={article_id}
-                        title={title}
-                        topic={topic}
-                        body={body}
-                        comment_count={comment_count}
-                        author={author}
-                        created_at={created_at}
-                        />
-                        );
-                    })
-                    
-                }
-                <Comments
-                    article_id={article_id} />
+            <ArticleCard
+                key={articles[0].article_id}
+                title={articles[0].title}
+                topic={articles[0].topic}
+                body={articles[0].body}
+                comment_count={articles[0].comment_count}
+                author={articles[0].author}
+                created_at={articles[0].created_at}
+            />
             
+                <Comments
+                    article_id={articles[0].article_id} /> 
+
         </section>
 )
 }
+            

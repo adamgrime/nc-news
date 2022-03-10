@@ -4,18 +4,20 @@ import CommentCard from './CommentCard';
 
 
 export default function Comments(props) {
+    
     const { article_id } = props
-    console.log(article_id)
+    
     const [comments, setComments] = useState([])
-
+    
+    
     useEffect(() => {
         api.getCommentByArticleId(article_id).then(({ comments }) => {
-            console.log(comments)
+
             setComments(comments)
+
         })
     }, [article_id])
 
-    console.log(comments)
 
     if (comments.length === 0) {
         return (
@@ -26,6 +28,7 @@ export default function Comments(props) {
         )
     }
 
+    
     return (
         <section>
             <h2 id = 'comments_header'>Comments</h2>

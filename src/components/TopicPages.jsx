@@ -25,7 +25,7 @@ export default function TopicPages() {
     if (isLoading) return <p id='loading'>loading, please wait</p>;
         return (
            <section>
-            {articles.map(({ article_id, title, body, topic, comment_count, author, created_at }) => {
+            {articles.map(({ article_id, title, body, topic, comment_count, author, created_at, votes }) => {
                 return (
                     <ArticleCard
                         key={article_id}
@@ -35,6 +35,7 @@ export default function TopicPages() {
                         comment_count={comment_count}
                         author={author}
                         created_at={created_at}
+                        votes={votes}
                     />
                 );
             })}

@@ -31,12 +31,14 @@ export default function SingleArticle() {
         <section>
             <ArticleCard
                 key={article.article_id}
+                article_id={article.article_id}
                 title={article.title}
                 topic={article.topic}
                 body={article.body}
                 comment_count={article.comment_count}
                 author={article.author}
                 created_at={article.created_at}
+                votes={article.votes}
             />
             
                 <Comments
@@ -45,4 +47,3 @@ export default function SingleArticle() {
         </section>
 )
 }
-            

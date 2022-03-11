@@ -4,7 +4,7 @@ import * as api from '../api'
 
 export default function ArticleCard({ article_id, title, body, topic, comment_count, author, created_at, votes }) {
 
-    const [newVote, changeVote] = useState(votes)
+    const [newVote, changeVote] = useState(0)
     const [err, setErr] = useState(null);
 
     const handleClick = (article_id, numberOfVotes) => {

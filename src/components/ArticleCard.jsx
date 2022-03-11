@@ -6,7 +6,7 @@ export default function ArticleCard({ article_id, title, body, topic, comment_co
 
     const [newVote, changeVote] = useState(0)
     const [err, setErr] = useState(null);
-
+    
     const handleClick = (article_id, numberOfVotes) => {
 
         changeVote((currentVote) => {
@@ -34,8 +34,8 @@ export default function ArticleCard({ article_id, title, body, topic, comment_co
 
             <section>
                 <h4>votes: {votes + newVote}</h4>
-                <button className='vote-button' onClick={() => handleClick(article_id, 1)} >+</button>
-                <button className='vote-button' onClick={() => handleClick(article_id, -1)}>-</button>
+                <button className='vote-button' disabled={newVote >= 1} onClick={() => handleClick(article_id, 1)} >+</button>
+                <button className='vote-button' disabled={newVote <= -1} onClick={() => handleClick(article_id, -1)}>-</button>
                 {err ? <p>{err}</p> : null}
             </section>
             

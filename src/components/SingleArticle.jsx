@@ -11,6 +11,8 @@ export default function SingleArticle() {
 
     const [article, setArticle] = useState({})
     const [isLoading, setIsLoading] = useState(true);
+   
+
     
     
     useEffect(() => {
@@ -42,7 +44,9 @@ export default function SingleArticle() {
             />
             
                 <Comments
-                    article_id={article.article_id} /> 
+                article_id={article.article_id}
+                comment_count={article.comment_count}
+                 /> 
 
         </section>
 )

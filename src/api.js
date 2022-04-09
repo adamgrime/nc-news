@@ -10,17 +10,18 @@ export const getTopics = () => {
     
 }
 
-export const getArticles = () => {
+export const getArticles = (topic, sort, order) => {
 
-    return axios.get(`${baseUrl}/articles`).then(({ data }) => {
+    return axios.get(`${baseUrl}/articles`, { params: { topic: topic, sort_by: sort, order: order } })
+        .then(({ data }) => {
         return data
     })
 
 }
 
-export const getArticlesByTopic = (topic) => {
+export const getArticlesByTopic = (topic, sort, order) => {
 
-    return axios.get(`${baseUrl}/articles?topic=${topic}`).then(({ data }) => {
+    return axios.get(`${baseUrl}/articles?topic=${topic}`, {params : {sort_by : sort, order: order}}).then(({ data }) => {
         return data
     })
 

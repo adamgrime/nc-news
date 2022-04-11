@@ -1,13 +1,9 @@
-import { useState } from "react";
-
 export const SortBy = ({ setSort, setOrder }) => {
-  const [currentValue, setCurrentValue] = useState();
-
+  
   const handleClick = (sort) => {
     const [sortBy, order] = sort.split(" ");
     setSort(sortBy);
     setOrder(order);
-    setCurrentValue(sort);
   };
 
   return (
@@ -15,7 +11,6 @@ export const SortBy = ({ setSort, setOrder }) => {
       <label>
         <select
         className="sort_by"
-          value={currentValue}
           onChange={(event) => {
             handleClick(event.target.value);
           }}

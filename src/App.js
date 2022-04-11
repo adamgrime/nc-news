@@ -7,6 +7,7 @@ import TopicPages from './components/TopicPages';
 import SingleArticle from './components/SingleArticle';
 import { UserContext } from './context/UserContext';
 import { useState } from 'react';
+import ErrorPage from './components/Error.jsx';
 
 function App() {
 
@@ -30,6 +31,7 @@ function App() {
           <Route path="/" element={<ArticleList />} />
           <Route path="/:topic" element={<TopicPages />} />
           <Route path="/articles/:article_id" element={<SingleArticle />} />
+          <Route path={"/*"} element={<ErrorPage />} />
         </Routes>
       </div>
     </UserContext.Provider>

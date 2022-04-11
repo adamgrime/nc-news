@@ -1,9 +1,10 @@
 import React from "react";
 import * as api from "../api";
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { UserContext } from "../context/UserContext";
 
-export default function AddComment({article_id, setComments}) {
-
+export default function AddComment({ article_id, setComments }) {
+  const { loggedInUser } = useContext(UserContext);
 
   const [comment, setComment] = useState("");
   const [error, setError] = useState(false);
@@ -19,21 +20,30 @@ export default function AddComment({article_id, setComments}) {
       body: comment,
     };
     setComment("");
-    setError(false)
-    
+    setError(false);
+
     api
-    .postComment(article_id, newComment)
+      .postComment(article_id, newComment)
       .then((returnedComment) => {
-        console.log(returnedComment)
+        console.log(returnedComment);
         setComments((currentComments) => {
-          console.log(returnedComment)
+          console.log(returnedComment);
           console.log([returnedComment, ...currentComments]);
-          return [returnedComment, ...currentComments]
-        })
-      }).catch(() => {
-        setError(true)
+          return [returnedComment, ...currentComments];
+        });
+      })
+      .catch(() => {
+        setError(true);
       });
   };
+
+  if (!loggedInUser.username) {
+    return (
+      <div>
+        <p> You must be logged in to post a comment!</p>
+      </div>
+    );
+  }
 
   return (
     <div>

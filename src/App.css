@@ -165,3 +165,31 @@
   margin-top: 2%;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 }
+
+/* ERROR PAGE */
+
+#error-heading {
+    font-size: 200%;
+  font-family: "Roboto Condensed", sans-serif;
+  text-decoration: underline;
+  color: #343a40;
+  text-align: center;
+}
+
+#error-message{
+    font-size: 200%;
+  font-family: "Roboto Condensed", sans-serif;
+  color: #343a40;
+  text-align: center;
+}
+
+#link-to-home{
+  font-size: 200%;
+  font-family: "Roboto Condensed", sans-serif;
+  color: #343a40;
+  text-align: center;
+  text-decoration: underline;
+  align-items: center;
+  margin-left: 44%;
+  margin-right: 42%;
+}

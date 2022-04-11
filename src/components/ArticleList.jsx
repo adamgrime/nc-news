@@ -3,6 +3,7 @@ import * as api from "../api";
 import ArticleCard from "./ArticleCard";
 import { SortBy } from "./SortBy";
 import { useParams } from "react-router-dom";
+import ErrorPage from "./Error";
 
 export default function ArticleList() {
   const [articles, setArticles] = useState([]);
@@ -10,16 +11,24 @@ export default function ArticleList() {
   const [sort, setSort] = useState("created_at");
   const { topic } = useParams();
   const [order, setOrder] = useState();
+  const [err, setErr] = useState(null);
 
   useEffect(() => {
     setIsLoading(true);
-    api.getArticles(topic, sort, order).then(({ articles }) => {
-      setArticles(articles);
-      setIsLoading(false);
-    });
+    api
+      .getArticles(topic, sort, order)
+      .then(({ articles }) => {
+        setArticles(articles);
+        setIsLoading(false);
+      })
+      .catch(() => {
+        setErr(true);
+        setIsLoading(false)
+      });
   }, [topic, sort, order]);
 
   if (isLoading) return <p id="loading">loading, please wait</p>;
+  if (err) return <ErrorPage />;
 
   return (
     <section>

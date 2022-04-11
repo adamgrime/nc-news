@@ -29,7 +29,8 @@ export const getArticlesByTopic = (topic, sort, order) => {
 };
 
 export const getArticlesByArticleId = (article_id) => {
-  return axios.get(`${baseUrl}/articles/${article_id}`).then(({ data }) => {
+    return axios.get(`${baseUrl}/articles/${article_id}`).then(({ data }) => {
+      console.log(data)
     return data;
   });
 };

@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import * as api from '../api'
 import ArticleCard from './ArticleCard';
 import Comments from './Comments';
+import ErrorPage from './Error';
 
 
 export default function SingleArticle() {
@@ -11,6 +12,7 @@ export default function SingleArticle() {
 
     const [article, setArticle] = useState({})
     const [isLoading, setIsLoading] = useState(true);
+      const [err, setErr] = useState(null);
    
 
     
@@ -22,12 +24,15 @@ export default function SingleArticle() {
             setArticle(article)
             setIsLoading(false)
             
+        }).catch(() => {
+            setErr(true)
+            setIsLoading(false)
         })
     }, [article_id])
     
     
     if (isLoading) return <p id='loading'>loading, please wait</p>;
-    
+    if(err) return <ErrorPage />
     
     return (
         <section>

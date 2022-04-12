@@ -20,7 +20,7 @@ The [NC News](https://ag-nc-news.netlify.app/) has the following features:
 ## Run Locally
 ### Requirements
 
-node - v16.4.2\
+node - v16.4.2
 
 ### Cloning & Set-up
 

@@ -3,6 +3,7 @@ import * as api from "../api";
 import { useParams } from "react-router-dom";
 import AddComment from "./AddComment";
 import { UserContext } from "../context/UserContext";
+import ErrorPage from "./Error";
 
 export default function Comments() {
   const { article_id } = useParams();
@@ -10,6 +11,7 @@ export default function Comments() {
   const [isLoading, setIsLoading] = useState(true);
   const [comments, setComments] = useState([]);
   const { loggedInUser } = useContext(UserContext);
+  const [err, setError] = useState(null);
 
   useEffect(() => {
     setIsLoading(true);
@@ -19,7 +21,10 @@ export default function Comments() {
         setComments(comments);
         setIsLoading(false);
       })
-      .catch(() => {});
+      .catch((err) => {
+        setIsLoading(false);
+        setError(err);
+      });
   }, [article_id]);
 
   const handleDelete = (event) => {
@@ -36,7 +41,9 @@ export default function Comments() {
     api
       .deleteComment(id)
       .then(() => {})
-      .catch((err) => {});
+      .catch((err) => {
+        setError(err);
+      });
   };
 
   if (comments.length === 0) {
@@ -51,6 +58,7 @@ export default function Comments() {
   }
 
   if (isLoading) return <p>loading..</p>;
+  if (err) return <ErrorPage />;
 
   return (
     <section>

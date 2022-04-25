@@ -20,6 +20,7 @@ export default function ArticleList() {
       .then(({ articles }) => {
         setArticles(articles);
         setIsLoading(false);
+        setErr(null)
       })
       .catch(() => {
         setErr(true);

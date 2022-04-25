@@ -29,8 +29,7 @@ export const getArticlesByTopic = (topic, sort, order) => {
 };
 
 export const getArticlesByArticleId = (article_id) => {
-    return axios.get(`${baseUrl}/articles/${article_id}`).then(({ data }) => {
-      console.log(data)
+  return axios.get(`${baseUrl}/articles/${article_id}`).then(({ data }) => {
     return data;
   });
 };
@@ -52,11 +51,9 @@ export const patchUser = (article_id, inc_votes) => {
 };
 
 export const postComment = (article_id, newComment) => {
-  console.log(newComment);
   return axios
     .post(`${baseUrl}/articles/${article_id}/comments`, newComment)
     .then(({ data: { comment } }) => {
-      console.log(comment);
       return comment;
     })
     .catch((err) => {

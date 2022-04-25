@@ -5,7 +5,7 @@
 
 I have created this Northcoders news webpage as my frontend project during my time on the [Northcoders](https://www.northcoders.com/) 13 week Javascript bootcamp. 
 
-The [NC News](https://ag-nc-news.netlify.app/) has the following features:
+The [NC News](https://ag-nc-news.netlify.app/) is linked to my [backend project](https://github.com/adamgrime/news-backend-project) and has the following features:
 
   - View List of Articles
   - Filter by Article Topic

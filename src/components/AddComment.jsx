@@ -25,10 +25,7 @@ export default function AddComment({ article_id, setComments }) {
     api
       .postComment(article_id, newComment)
       .then((returnedComment) => {
-        console.log(returnedComment);
         setComments((currentComments) => {
-          console.log(returnedComment);
-          console.log([returnedComment, ...currentComments]);
           return [returnedComment, ...currentComments];
         });
       })

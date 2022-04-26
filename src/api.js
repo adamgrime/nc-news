@@ -44,7 +44,7 @@ export const getCommentByArticleId = (article_id) => {
 
 export const patchUser = (article_id, inc_votes) => {
   return axios
-    .patch(`${baseUrl}/articles/${article_id}`, { inc_votes: inc_votes })
+    .patch(`${baseUrl}/articles/${article_id}`, { inc_vote: inc_votes })
     .then(({ data: { article } }) => {
       return article;
     });

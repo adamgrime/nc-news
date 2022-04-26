@@ -20,11 +20,11 @@ export default function ArticleList() {
       .then(({ articles }) => {
         setArticles(articles);
         setIsLoading(false);
-        setErr(null)
+        setErr(null);
       })
       .catch(() => {
         setErr(true);
-        setIsLoading(false)
+        setIsLoading(false);
       });
   }, [topic, sort, order]);
 

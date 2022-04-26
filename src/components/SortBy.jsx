@@ -15,7 +15,7 @@ export const SortBy = ({ setSort, setOrder }) => {
             handleClick(event.target.value);
           }}
         >
-          <option value="" disabled selected>
+          <option value="">
             Sort By...
           </option>
           <option value="created_at ASC">Oldest</option>

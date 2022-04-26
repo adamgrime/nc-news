@@ -9,7 +9,7 @@ export default function Nav() {
         getTopics().then(({ topics }) => {
             setTopic(topics)
         })
-    }, []);
+    }, [])
 
 
     return (
